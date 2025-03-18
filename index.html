@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="explore">Explore</button>
+    <dialog id="explore-modal" class="modal">
+        <span class="close" onclick="closeModal('#explore-modal')">&times;</span>
+        <div id="activity-mini">
+            <span>Activity</span>
+            <button id="more-activity">More Info</button>
+        </div>
+        <div id="assignment-container">
+            <section id="assignment-options">Options</section>
+            <section id="assignment-details">Details</section>
+        </div>
+        <div id="teams">
+            <div id="team-buttons">
+                <button id="new-team" onclick="newTeam()">New Team</button>
+            </div>
+            <div id="team-members">
+                <section id="member-one">
+                    <p id="member-one-name" class="hero-datapoint"></p>
+                    <p id="member-one-level" class="hero-datapoint"></p>
+                    <p id="member-one-stats" class="hero-datapoint"></p>
+                    <div class="hero-assignment-buttons hidden"></div>
+                </section>
+                <section id="member-two">
+                    <p id="member-two-name" class="hero-datapoint"></p>
+                    <p id="member-two-level" class="hero-datapoint"></p>
+                    <p id="member-two-stats" class="hero-datapoint"></p>
+                    <div class="hero-assignment-buttons hidden"></div>
+                </section>
+                <section id="member-three">
+                    <p id="member-three-name" class="hero-datapoint"></p>
+                    <p id="member-three-level" class="hero-datapoint"></p>
+                    <p id="member-three-stats" class="hero-datapoint"></p>
+                    <div class="hero-assignment-buttons hidden"></div>
+                </section>
+                <section id="member-four">
+                    <p id="member-four-name" class="hero-datapoint"></p>
+                    <p id="member-four-level" class="hero-datapoint"></p>
+                    <p id="member-four-stats" class="hero-datapoint"></p>
+                    <div class="hero-assignment-buttons hidden"></div>
+                </section>
+            </div>
+
+        </div>
+    </dialog>
+    <script src="main.js" type="text/javascript"></script>
+</body>
+</html>
