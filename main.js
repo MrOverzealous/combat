@@ -155,6 +155,7 @@ function newTeam() {
         }
         button.classList.add('selected');
         displayTeam(team);
+        checkIfReady();
     });
 }
 function displayTeam(team) {
@@ -234,9 +235,6 @@ function handleHeroButtons(container) {
 }
 
 
-
-
-
 class Dungeon {
     constructor(name, levelReq, opponents) {
         this.name = name;
@@ -299,14 +297,31 @@ function displayDungeons() {
                     item.innerText = `${dungeon.opponents[j].name}`;
                     details.appendChild(item);
                 }
+                checkIfReady();
             });
             container.appendChild(button);
         }
     }
 }
+
+function checkIfReady() {
+    const begin = document.querySelector('#begin-dungeon');
+    const options = document.querySelector('#assignment-options .selected');
+    const team = document.querySelector('#team-buttons .selected');
+    console.log(team)
+    console.log(options)
+    if (options !== null && team !== null) {
+        begin.classList.add('ready');
+    }
+    else {
+        if (begin.classList.contains('ready')) {
+            begin.classList.remove('ready');
+        }
+    }
+}
 // add a remove button to each hero slot 
-// need to add a 'begin' button
-// if both a team and dungeon are .selected, both listeners will need to check for that condition, and update the button class/color
+//// need to add a 'begin' button
+//// if both a team and dungeon are .selected, both listeners will need to check for that condition, and update the button class/color
 // if a team is currently active, then other teams with them on it need that to be displayed and stopped from being able to send that team out unless it only has members that aren't active
 // begin should update the Activity section, and summarize what's going on in a slot
 // (unsure if it should be updated frequently or load updates when Explore is clicked)
@@ -324,11 +339,20 @@ function updateScreen() {
 
 }
 
+// NOTE: These listeners should be added by functions that are called when the "Explore" feature is unlocked
+document.querySelector('#begin-dungeon').addEventListener('click', function() {
+    if (this.classList.contains('ready')) {
+        // check if team is already dispatched
+        // if not, dispatch team
+        // else, warn
+    }
+});
+
 document.querySelector('#explore').addEventListener('click', () => {
     document.querySelector('#explore-modal').showModal();
     displayDungeons();
     if (teams.length > 0) {
-
+        // ? not sure what this was supposed to be
     }
 });
 
